@@ -1,11 +1,18 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8609c4509114e69caa962e6f7d556d086469d0cb
 # Godot-specific ignores
 .import/
 export.cfg
 export_presets.cfg
 
+<<<<<<< HEAD
 # Imported translations (automatically generated from CSV files)
 *.translation
 
+=======
+>>>>>>> 8609c4509114e69caa962e6f7d556d086469d0cb
 # Mono-specific ignores
 .mono/
 data_*/
