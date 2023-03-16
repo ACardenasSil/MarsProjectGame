@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://astronaut.png" type="Texture" id=1]
 [ext_resource path="res://ground.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://groundrock.png" type="Texture" id=4]
 [ext_resource path="res://groundrockbig.png" type="Texture" id=5]
 [ext_resource path="res://wheat.png" type="Texture" id=6]
+[ext_resource path="res://World.gd" type="Script" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=17]
 points = PoolVector2Array( 27, 77, 58, 27, 107, 27, 121, 78, 107, 105, 45, 109 )
@@ -175,6 +176,7 @@ animations = [ {
 extents = Vector2( 28, 16 )
 
 [node name="World" type="Node2D"]
+script = ExtResource( 7 )
 
 [node name="Tiles" type="TileMap" parent="."]
 tile_set = SubResource( 1 )

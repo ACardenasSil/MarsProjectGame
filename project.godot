@@ -24,10 +24,6 @@ config/name="MarsPrototype"
 run/main_scene="res://Main Menu.tscn"
 config/icon="res://icon.png"
 
-[autoload]
-
-Hud="*res://HUD.tscn"
-
 [editor]
 
 version_control_autoload_on_startup=true
