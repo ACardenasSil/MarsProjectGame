@@ -111,6 +111,11 @@ func _input(event: InputEvent) -> void:
 		var tile = mouse_pos
 		set_cell(tile.x, tile.y, dirt)
 	pass
+
+
+func _on_Skill_Tree_pressed():
+	#pass # Replace with function body.
+	get_tree().change_scene(\"res://Skill Tree Menu.tscn\")
 "
 
 [sub_resource type="AtlasTexture" id=21]
@@ -201,3 +206,15 @@ shape = SubResource( 3 )
 [node name="PlayerCamera" type="Camera2D" parent="Player"]
 current = true
 zoom = Vector2( 2, 2 )
+
+[node name="Skill Tree" type="Button" parent="Player"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = -997.0
+margin_top = 449.0
+margin_right = -830.0
+margin_bottom = 513.0
+rect_scale = Vector2( 2, 2 )
+text = "Skill Tree"
+
+[connection signal="pressed" from="Player/Skill Tree" to="Tiles" method="_on_Skill_Tree_pressed"]
