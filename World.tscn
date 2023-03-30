@@ -136,6 +136,24 @@ func _input(event: InputEvent) -> void:
 		else :
 			var tile = mouse_pos
 			set_cell(tile.x, tile.y, 1)
+	if event.is_action_pressed(\"two\") :
+		var mouse_pos = get_node('/root/World/Tiles').world_to_map(get_global_mouse_position())
+		var tile_type = get_cellv(mouse_pos)
+		#if tile is not dirt/empty lot, then you cant build anything there
+		if !(tile_type == 0) :  #dirt
+			print(\"Warning! Lot is not empty! Please clear the lot before building.\")
+		else :
+			var tile = mouse_pos
+			set_cell(tile.x, tile.y, 5)
+	if event.is_action_pressed(\"three\") :
+		var mouse_pos = get_node('/root/World/Tiles').world_to_map(get_global_mouse_position())
+		var tile_type = get_cellv(mouse_pos)
+		#if tile is not dirt/empty lot, then you cant build anything there
+		if !(tile_type == 0) :  #dirt
+			print(\"Warning! Lot is not empty! Please clear the lot before building.\")
+		else :
+			var tile = mouse_pos
+			set_cell(tile.x, tile.y, 4)
 		
 	elif event.is_action_pressed(\"right_click\") :
 		var mouse_pos = get_node('/root/World/Tiles').world_to_map(get_global_mouse_position())
