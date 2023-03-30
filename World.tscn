@@ -127,39 +127,41 @@ func _input(event: InputEvent) -> void:
 	var new_tile_type = 1 # rock in place for a greenhouse, etc
 	var dirt = 0
 	
-	if event.is_action_pressed(\"click\") :
-		var mouse_pos = get_node('/root/World/Tiles').world_to_map(get_global_mouse_position())
-		var tile_type = get_cellv(mouse_pos)
-		#if tile is not dirt/empty lot, then you cant build anything there
-		if !(tile_type == 0) :  #dirt
-			print(\"Warning! Lot is not empty! Please clear the lot before building.\")
-		else :
+	if event.is_action_pressed(\"block_menu\"):
+		get_parent().get_node(\"Player\").building_mode = !get_parent().get_node(\"Player\").building_mode
+	if (get_parent().get_node(\"Player\").building_mode) :
+		if event.is_action_pressed(\"click\") :
+			var mouse_pos = get_node('/root/World/Tiles').world_to_map(get_global_mouse_position())
+			var tile_type = get_cellv(mouse_pos)
+			#if tile is not dirt/empty lot, then you cant build anything there
+			if !(tile_type == 0) :  #dirt
+				print(\"Warning! Lot is not empty! Please clear the lot before building.\")
+			else :
+				var tile = mouse_pos
+				set_cell(tile.x, tile.y, 1)
+		if event.is_action_pressed(\"wheat\") :
+			var mouse_pos = get_node('/root/World/Tiles').world_to_map(get_global_mouse_position())
+			var tile_type = get_cellv(mouse_pos)
+			#if tile is not dirt/empty lot, then you cant build anything there
+			if !(tile_type == 0) :  #dirt
+				print(\"Warning! Lot is not empty! Please clear the lot before building.\")
+			else :
+				var tile = mouse_pos
+				set_cell(tile.x, tile.y, 3)
+		if event.is_action_pressed(\"water_tower\") :
+			var mouse_pos = get_node('/root/World/Tiles').world_to_map(get_global_mouse_position())
+			var tile_type = get_cellv(mouse_pos)
+			#if tile is not dirt/empty lot, then you cant build anything there
+			if !(tile_type == 0) :  #dirt
+				print(\"Warning! Lot is not empty! Please clear the lot before building.\")
+			else :
+				var tile = mouse_pos
+				set_cell(tile.x, tile.y, 4)
+			
+		elif event.is_action_pressed(\"right_click\") :
+			var mouse_pos = get_node('/root/World/Tiles').world_to_map(get_global_mouse_position())
 			var tile = mouse_pos
-			set_cell(tile.x, tile.y, 1)
-	if event.is_action_pressed(\"two\") :
-		var mouse_pos = get_node('/root/World/Tiles').world_to_map(get_global_mouse_position())
-		var tile_type = get_cellv(mouse_pos)
-		#if tile is not dirt/empty lot, then you cant build anything there
-		if !(tile_type == 0) :  #dirt
-			print(\"Warning! Lot is not empty! Please clear the lot before building.\")
-		else :
-			var tile = mouse_pos
-			set_cell(tile.x, tile.y, 5)
-	if event.is_action_pressed(\"three\") :
-		var mouse_pos = get_node('/root/World/Tiles').world_to_map(get_global_mouse_position())
-		var tile_type = get_cellv(mouse_pos)
-		#if tile is not dirt/empty lot, then you cant build anything there
-		if !(tile_type == 0) :  #dirt
-			print(\"Warning! Lot is not empty! Please clear the lot before building.\")
-		else :
-			var tile = mouse_pos
-			set_cell(tile.x, tile.y, 4)
-		
-	elif event.is_action_pressed(\"right_click\") :
-		var mouse_pos = get_node('/root/World/Tiles').world_to_map(get_global_mouse_position())
-		var tile = mouse_pos
-		set_cell(tile.x, tile.y, dirt)
-	pass
+			set_cell(tile.x, tile.y, dirt)
 
 
 func _on_Skill_Tree_pressed():
