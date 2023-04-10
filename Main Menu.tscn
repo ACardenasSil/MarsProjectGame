@@ -42,4 +42,5 @@ margin_bottom = 68.0
 text = "Quit"
 
 [connection signal="pressed" from="TextureRect/VBoxContainer/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/Options" to="." method="_on_Options_pressed"]
 [connection signal="pressed" from="TextureRect/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
