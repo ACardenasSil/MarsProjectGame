@@ -5,7 +5,7 @@ const MAX_SPEED = 20000
 const FRICTION = 10000
 
 onready var animatedSprite = $Astronaut
-var building_mode = 0
+
 var velocity = Vector2.ZERO
 
 func _physics_process(delta):
